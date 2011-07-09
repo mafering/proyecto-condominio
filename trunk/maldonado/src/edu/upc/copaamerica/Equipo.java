@@ -10,6 +10,7 @@ public class Equipo {
 
 	}
 
+	// prueba
 	private Equipo(String nombre, String pais) {
 		this.nombre = nombre;
 		this.pais = pais;
