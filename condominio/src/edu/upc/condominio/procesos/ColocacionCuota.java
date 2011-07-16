@@ -41,23 +41,24 @@ public class ColocacionCuota {
 		return resultado;
 	}
 	
-	public ArrayList<Cuota>  buscaCuotaPorViviendaYPeriodo(String codigoVivienda, int periodo){
-		ArrayList<Cuota> resultado = new ArrayList<Cuota>();
+	public Cuota  buscaCuotaPorViviendaYPeriodo(String codigoVivienda, int periodo){
+		Cuota cuotaResultado= new Cuota();
 		for(Cuota cuota: cuotas)
 		{
 			if (cuota.getCodigoVivienda().equals(codigoVivienda) && 
 				cuota.getPeriodo() == periodo)	
 			{
-				resultado.add(cuota);
+				cuotaResultado = cuota;
 			}
 			
 		}
-		return resultado;
+		return cuotaResultado;
 	}
 
-	public void eliminaCuota(String codigoVivienda, int periodo){
+	public void eliminarCuota(String codigoVivienda, int periodo){
 		
 	}
+	
 	public void actualizarCuotas(){
 		
 		
