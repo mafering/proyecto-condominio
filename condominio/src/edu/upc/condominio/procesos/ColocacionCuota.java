@@ -14,11 +14,6 @@ public class ColocacionCuota {
 		cuotas = new ArrayList<Cuota>();
 	}
 	
-	private int periodo;
-	double importe;
-	Date fechaVencimiento;
-	private String codigoVivienda;
-	
 	public void registrarCuotas(String codigoVivienda, int periodo, 
 								double importe, Date fechaVencimiento){
 		Cuota cuota = new Cuota();
@@ -34,7 +29,7 @@ public class ColocacionCuota {
 	}
 	
 	
-	public ArrayList<Cuota> buscaCuotaVivienda(String codigoVivienda){
+	public ArrayList<Cuota> buscaCuotasPorVivienda(String codigoVivienda){
 		ArrayList<Cuota> resultado = new ArrayList<Cuota>();
 		for(Cuota cuota: cuotas)
 		{
@@ -46,7 +41,7 @@ public class ColocacionCuota {
 		return resultado;
 	}
 	
-	public ArrayList<Cuota>  buscaCuotaViviendaPeriodo(String codigoVivienda, int periodo){
+	public ArrayList<Cuota>  buscaCuotaPorViviendaYPeriodo(String codigoVivienda, int periodo){
 		ArrayList<Cuota> resultado = new ArrayList<Cuota>();
 		for(Cuota cuota: cuotas)
 		{
@@ -61,7 +56,6 @@ public class ColocacionCuota {
 	}
 
 	public void eliminaCuota(String codigoVivienda, int periodo){
-		
 		
 	}
 	public void actualizarCuotas(){
