@@ -1,0 +1,5 @@
+#summary One-sentence summary of this page.
+
+= Introducción =
+
+El proyecto que se esta desarrollando, nos va permitir administrar los gastos de mantenimiento y alquiler de un condominio.
