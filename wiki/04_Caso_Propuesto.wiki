@@ -1,13 +1,12 @@
-#summary One-sentence summary of this page.
+1. Inscripción de residentes.- Como administrador deseo inscribir a los residentes del condominio 
+de modo que ellos puedan acceder al sistema.
 
-= Introduction =
+Cuando: 
+Inscribo un residente debo indicar como 
+mínimo su documento de identidad, nombres, 
+edad, correo y clave de acceso.
+	Espero
+- Confirmación de la inscripción OK.
+- Mensaje de error si ya se registró el 
+mismo documento o correo.
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
