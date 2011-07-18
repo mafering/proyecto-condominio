@@ -4,10 +4,22 @@ import java.util.Date;
 
 public class Cuota {
 	
+	private String codigoVivienda;
 	private int periodo;
 	double importe;
 	Date fechaVencimiento;
-	private String codigoVivienda;
+	
+	public Cuota(){
+		
+	}
+	
+	public Cuota(String codigoVivienda, int periodo, 
+			 double importe, Date fechaVencimiento){
+		this.codigoVivienda = codigoVivienda;
+		this.periodo = periodo;
+		this.importe = importe;
+		this.fechaVencimiento = fechaVencimiento;
+	}
 	
 	public String getCodigoVivienda() {
 		return codigoVivienda;
