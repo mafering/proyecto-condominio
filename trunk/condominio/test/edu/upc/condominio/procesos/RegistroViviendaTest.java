@@ -1,16 +1,23 @@
 package edu.upc.condominio.procesos;
 
 import java.text.ParseException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import edu.upc.condominio.procesos.RegistroVivienda;
 import static org.junit.Assert.*;
 
 public class RegistroViviendaTest {
+	RegistroVivienda registroVivienda;
+
+	@Before
+	public void Inicio() {
+		registroVivienda = new RegistroVivienda();
+	}
 
 	@Test
 	public void registrarUnavivienda() {
-		RegistroVivienda registroVivienda = new RegistroVivienda();
 		registroVivienda.registrarVivienda("viv0001", "los alamos", 1758, 25.5,
 				"casa", "res0001");
 		assertEquals(1, registroVivienda.getVivienda().size());
@@ -18,7 +25,6 @@ public class RegistroViviendaTest {
 
 	@Test
 	public void registroVariasVivienda() {
-		RegistroVivienda registroVivienda = new RegistroVivienda();
 		registroVivienda.registrarVivienda("viv0001", "los alamos", 1758, 25.5,
 				"casa", "res0001");
 		registroVivienda.registrarVivienda("viv0002", "panamerica", 2145,
