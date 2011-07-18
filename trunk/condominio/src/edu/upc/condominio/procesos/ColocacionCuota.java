@@ -16,11 +16,16 @@ public class ColocacionCuota {
 	
 	public void registrarCuotas(String codigoVivienda, int periodo, 
 								double importe, Date fechaVencimiento){
-		Cuota cuota = new Cuota();
-		cuota.setCodigoVivienda(codigoVivienda);
-		cuota.setPeriodo(periodo);
-		cuota.setImporte(importe);
-		cuota.setFechaVencimiento(fechaVencimiento);
+		
+		for(Cuota cuota: cuotas){
+			if (cuota.getCodigoVivienda().equals(codigoVivienda) && 
+					cuota.getPeriodo() == periodo)	
+				{
+					throw new RuntimeException("Cuota ya ha sido Registrada para la vivienda y Periodo");
+				}
+		}
+		Cuota cuota = new Cuota(codigoVivienda, 
+				periodo, importe, fechaVencimiento);
 		cuotas.add(cuota);
 	}
 	
@@ -55,14 +60,5 @@ public class ColocacionCuota {
 		return cuotaResultado;
 	}
 
-	public void eliminarCuota(String codigoVivienda, int periodo){
-		
-	}
-	
-	public void actualizarCuotas(){
-		
-		
-	}
-	
-	
 }
+
