@@ -1,7 +1,7 @@
 package edu.upc.condominio.procesos;
 
 import java.util.ArrayList;
-
+import edu.upc.condominio.entidades.Residente; 
 public class RegistroResidente {
 
 	private ArrayList<Residente> residentes;
@@ -24,7 +24,7 @@ public class RegistroResidente {
 		residentes.add(residente);
 	}
 	
-	private void buscarDni(String dni) throws RuntimeException {
+	private void buscarDni(String dni){
 		for (Residente residente:residentes){
 			if (residente.getDni().equals(dni)){
 				
