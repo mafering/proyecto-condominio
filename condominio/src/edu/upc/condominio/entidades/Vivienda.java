@@ -7,6 +7,22 @@ public class Vivienda {
 	private double metraje;
 	private String tipo;
 	private String idResidente;
+	
+	//------ ATILIO--------
+	
+	private Residente residente;
+	
+	
+
+	public Residente getResidente() {
+		return residente;
+	}
+
+	public void setResidente(Residente residente) {
+		this.residente = residente;
+	}
+	
+	// -----------------------------
 
 	public Vivienda(String idVivienda, String ubicacion, int numero,
 			double metraje, String tipo, String idResidente) {
