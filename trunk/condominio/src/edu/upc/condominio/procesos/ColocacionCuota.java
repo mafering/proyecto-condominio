@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import edu.upc.condominio.entidades.Cuota;
+import edu.upc.condominio.entidades.Vivienda;
 
 public class ColocacionCuota {
 
 	
 	private ArrayList<Cuota> cuotas;
+	
 	
 	public ColocacionCuota(){
 		cuotas = new ArrayList<Cuota>();
@@ -25,8 +27,9 @@ public class ColocacionCuota {
 				}
 		}
 		Cuota cuota = new Cuota(codigoVivienda, 
-				periodo, importe, fechaVencimiento);
+				periodo, importe, fechaVencimiento );
 		cuotas.add(cuota);
+	
 	}
 	
 	public ArrayList<Cuota>  getCuotas(){

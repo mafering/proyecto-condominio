@@ -9,6 +9,43 @@ public class Cuota {
 	double importe;
 	Date fechaVencimiento;
 	
+	//----------- Atilio
+	
+	private Vivienda vivienda;
+	
+	
+	public Vivienda getVivienda() {
+		return vivienda;
+	}
+
+	public void setVivienda(Vivienda vivienda) {
+		this.vivienda = vivienda;
+	}
+	private Date fechaPago;
+	private String tipoPago;
+	
+	
+	public Date getFechaPago() {
+		return fechaPago;
+	}
+
+	public void setFechaPago(Date fechaPago) {
+		this.fechaPago = fechaPago;
+	}
+
+	public String getTipoPago() {
+		return tipoPago;
+	}
+
+	public void setTipoPago(String tipoPago) {
+		this.tipoPago = tipoPago;
+	}
+
+	
+	
+	//--------------------------------
+	
+	
 	public Cuota(){
 		
 	}
