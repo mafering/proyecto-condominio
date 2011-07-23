@@ -24,32 +24,31 @@ public class ConsultaDeMorososTests {
 	@Test
 	public void consultadeMorosos() throws ParseException {
 		
-		SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
-		Date fecha=format.parse("2011/07/21");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		Date fecha = format.parse("2011/07/21");
 		
 		RegistroResidente registroresidente=new RegistroResidente();
 		
-		registroresidente.registrarResidente("12345678", "Eva María", "Terrazas Garcia",25, "evamaria@hotmail.com", "12345");
-		registroresidente.registrarResidente("12345679", "José Antonio", "Lopez Roque", 41, "joseantonio@hotmail.com", "12367");
-		registroresidente.registrarResidente("12345677", "Cesar Gustavo", "Aguilar Cardenas",32, "cesargustavo@hotmail.com", "12389");
+		registroresidente.registrarResidente("10401030", "Eva María", "Terrazas Garcia",25, "evamaria@hotmail.com", "clave1");
+		registroresidente.registrarResidente("40826005", "Atilio", "Tapia", 31, "atilio.tapia@hotmail.com", "1cla");
+		registroresidente.registrarResidente("45012212", "Cesar Gustavo", "Aguilar Cardenas",32, "cesargustavo@hotmail.com", "1cla2ve");
 		
 		ArrayList<Residente> lstResidente=registroresidente.getResidentes();
 		
-		
 		RegistroVivienda registroVivienda=new RegistroVivienda();
-		registroVivienda.registrarVivienda("viv0001", "los alamos", 1758, 25.5,"casa", "12345678");
-		registroVivienda.registrarVivienda("viv0002", "panamerica", 2145,100.5, "edificio", "12345679");
-		registroVivienda.registrarVivienda("viv0003", "santa rosa", 4201, 90.5,"casa", "12345679");
+		registroVivienda.registrarVivienda("V0102", "B A", 102, 400,"CASA", "10401030");
+		registroVivienda.registrarVivienda("D1201", "D1 S", 122,90, "DPTO.", "40826005");
+		registroVivienda.registrarVivienda("D2012", "D2 A", 123, 90,"DPTO.", "45012212");
 		ArrayList<Vivienda> lstVivienda=registroVivienda.getVivienda();
 		
 		ColocacionCuota obj=new ColocacionCuota();
-		obj.registrarCuotas("viv0001",2011,10.4, format.parse("2011/07/21"));
-		obj.registrarCuotas("viv0002",2011, 50.8,format.parse("2011/07/23"));
-		obj.registrarCuotas("viv0003", 2011,30.8, format.parse("2011/07/13"));
+		obj.registrarCuotas("V0102",2011,110.4, format.parse("2011/07/30"));
+		obj.registrarCuotas("D1201",2011, 250.8,format.parse("2011/07/28"));
+		obj.registrarCuotas("D2012", 2011,330.20, format.parse("2011/10/28"));
 		
 		ArrayList<Cuota> lstCuotas=obj.getCuotas();
 		
-		ConsultaDeMorosos obj_morosos=new ConsultaDeMorosos(lstCuotas,lstVivienda,lstResidente);
+		ConsultaDeMorosos obj_morosos= new ConsultaDeMorosos(lstCuotas,lstVivienda,lstResidente);
 		// FECHA DEBE SER MAYOR A LA FECHA DE VENCIMIENTO
 		obj_morosos.listaCuotasMorosos(format.parse("2011/08/11"));
 		
