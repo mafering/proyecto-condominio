@@ -47,10 +47,8 @@ public class ConsultaDeMorosos {
 				lstDeuda.add(bean);
 				for(Vivienda vivienda:listaViviendas){
 					if(vivienda.getIdVivienda().equals(bean.getCodigoVivienda())){
-						
 						viviendaCodigo =  bean.getCodigoVivienda();
 						viviendaUbicacion =  vivienda.getUbicacion();						
-						//System.out.println("CODIGO DE VIVIENDA :"+ bean.getCodigoVivienda()+" UBICACION :"+vivienda.getUbicacion()+"\n");
 						
 						for(Residente residente:listaResidentes){						
 							if(vivienda.getIdResidente().equals(residente.getDni())){
@@ -65,10 +63,6 @@ public class ConsultaDeMorosos {
 				vencimientoFecha = format.format(fechaPagar) + "";
 				vencimientoDias  = ((fecha.getTime()-fechaPagar.getTime())/(3600*24*1000)) + "";
 				importe =  bean.getImporte() + "";
-				
-				//System.out.println("FECHA VENCIMIENTo :"+ format.format(fechaPagar)+" DIAS RETRASO : "+((fecha.getTime()-fechaPagar.getTime())/(3600*24*1000))+"\n");
-				//System.out.println("VALOR PAGO : "+bean.getImporte()+"\n");
-				//System.out.println("-------------------------\n");
 			
 			}
 			
