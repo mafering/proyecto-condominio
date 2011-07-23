@@ -32,6 +32,7 @@ public class ConsultaDeMorososTests {
 		registroresidente.registrarResidente("12345678", "Eva María", "Terrazas Garcia",25, "evamaria@hotmail.com", "12345");
 		registroresidente.registrarResidente("12345679", "José Antonio", "Lopez Roque", 41, "joseantonio@hotmail.com", "12367");
 		registroresidente.registrarResidente("12345677", "Cesar Gustavo", "Aguilar Cardenas",32, "cesargustavo@hotmail.com", "12389");
+		
 		ArrayList<Residente> lstResidente=registroresidente.getResidentes();
 		
 		
