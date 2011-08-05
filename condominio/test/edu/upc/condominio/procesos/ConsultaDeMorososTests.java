@@ -50,7 +50,7 @@ public class ConsultaDeMorososTests {
 		
 		ConsultaDeMorosos obj_morosos= new ConsultaDeMorosos(lstCuotas,lstVivienda,lstResidente);
 		// FECHA DEBE SER MAYOR A LA FECHA DE VENCIMIENTO
-		obj_morosos.listaCuotasMorosos(format.parse("2011/08/11"));
+		obj_morosos.listaCuotasMorosos(format.parse("2011/08/10"));
 		
 		
 	}
