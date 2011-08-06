@@ -4,30 +4,35 @@ import java.util.Date;
 
 public class Cuota {
 	
-	private String idVivienda;
+
 	private int periodo;
 	double importe;
 	Date fechaVencimiento;
+	
+	private Vivienda vivienda;
+	private String tipoPago;
+	private Date fechaPago;
 	
 	public Cuota(){
 		
 	}
 	
-	public Cuota(String idVivienda, int periodo, 
-			 double importe, Date fechaVencimiento){
-		this.idVivienda = idVivienda;
+	public Cuota(Vivienda vivienda, 
+				int periodo, 
+				double importe, 
+				Date fechaVencimiento,
+				String tipoPago,
+				Date fechaPago){
+		
+		this.vivienda = vivienda;
 		this.periodo = periodo;
 		this.importe = importe;
 		this.fechaVencimiento = fechaVencimiento;
+		this.tipoPago =  tipoPago;
+		this.fechaPago = fechaPago;
 	}
 	
-	public String getCodigoVivienda() {
-		return idVivienda;
-	}
-	
-	public void setCodigoVivienda(String idVivienda) {
-		this.idVivienda = idVivienda;
-	}
+
 	
 	public int getPeriodo() {
 		return periodo;
@@ -53,12 +58,7 @@ public class Cuota {
 		this.fechaVencimiento = fechaVencimiento;
 	}
 
-	//----------- Atilio
 	
-		private Vivienda vivienda;
-		private Date fechaPago;
-		private String tipoPago;
-		
 		public Vivienda getVivienda() {
 			return vivienda;
 		}
@@ -83,9 +83,6 @@ public class Cuota {
 			this.tipoPago = tipoPago;
 		}
 
-		
-		
-		//--------------------------------
 	
 	
 	

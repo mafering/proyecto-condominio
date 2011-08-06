@@ -18,7 +18,7 @@ public class PagodeCuotas {
 		
 		ArrayList<Cuota> lstDeuda=new ArrayList<Cuota>();
 		for(Cuota bean:listaCuotas){			
-			if(bean.getCodigoVivienda().equals(codVivienda) && bean.getTipoPago()==null){		
+			if(bean.getVivienda().equals(codVivienda) && bean.getTipoPago()==null){		
 				lstDeuda.add(bean);
 			}			
 		}
@@ -31,7 +31,7 @@ public class PagodeCuotas {
 		
     	int i=0;
     	for(Cuota bean:listaCuotas){			
-			if(bean.getCodigoVivienda().equals(pago.getCodigoVivienda()) && bean.getTipoPago()==null){		
+			if(bean.getVivienda().equals(pago.getVivienda()) && bean.getTipoPago()==null){		
 				listaCuotas.set(i,pago);
 				return "OK PAGO "+pago.getFechaPago();
 			}	
