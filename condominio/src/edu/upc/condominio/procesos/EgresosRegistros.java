@@ -7,7 +7,7 @@ import edu.upc.condominio.entidades.Usuario;
 
 public class EgresosRegistros {
 
-	static int cajaSaldo = 400;
+	public static int cajaSaldo = 400;
 	int cajaSaldoConsulta;
 	
 	private static ArrayList<Egresos> egresosTabla = new ArrayList<Egresos>();
@@ -31,7 +31,8 @@ public class EgresosRegistros {
 			Egresos  egresoRegistro = new Egresos(egresoId, idUsuario, tipoDeEgreso, motivo, fecha, valor); 
 			egresosTabla.add(egresoRegistro);
 			cajaSaldo = cajaSaldo - valor;
-			System.out.println("Se registro con exito egreso, el saldo actual es: S/. " + cajaSaldo);
+			System.out.println("Se registro con exito el EGRESO: S/." + valor +"\n" +
+					"el saldo actual es: S/. " + cajaSaldo);
 		}
     
 				
