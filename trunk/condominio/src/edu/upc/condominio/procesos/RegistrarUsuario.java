@@ -2,6 +2,7 @@ package edu.upc.condominio.procesos;
 
 import java.util.ArrayList;
 
+import edu.upc.condominio.entidades.Residente;
 import edu.upc.condominio.entidades.TipoUsuario;
 import edu.upc.condominio.entidades.Usuario;
 import edu.upc.condominio.entidades.Vivienda;
@@ -24,17 +25,23 @@ public class RegistrarUsuario {
 			usuarios.add(usuario);
 		}
 		
-		/*
-		public Visitante getVisitante(String dni) {
-			Visitante resultado = new Visitante();
-			for(Visitante visitante: visitantes){
-				if(visitante.getDni().equals(dni)){
-					resultado = visitante;
+		void registrarUsuario(String idUsuario, 
+				String nombreUsuario, TipoUsuario tipoUsuario, Vivienda vivienda, Residente residente) {
+				Usuario usuario= new Usuario(idUsuario, nombreUsuario,tipoUsuario,vivienda, residente);
+				usuarios.add(usuario);
+		}
+		
+		
+		public Usuario getUsuarios(String idUsuario) {
+			Usuario resultado = new Usuario();
+			for(Usuario usuario: usuarios){
+				if(usuario.getIdUsuario().equals(idUsuario)){
+					resultado = usuario;
 				}
 			}
 			return resultado;
 		}
-		*/
+		
 		
 	
 }
