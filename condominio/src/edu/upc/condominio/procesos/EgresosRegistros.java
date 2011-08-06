@@ -23,7 +23,7 @@ public class EgresosRegistros {
 		
 		
 		cajaSaldoConsulta=0;
-		egresosValidacionesSaldoCaja(valor);
+		egresosValidacionesSaldoCaja(valor, tipoDeEgreso, motivo);
 		
 		
 		
@@ -31,18 +31,19 @@ public class EgresosRegistros {
 			Egresos  egresoRegistro = new Egresos(egresoId, idUsuario, tipoDeEgreso, motivo, fecha, valor); 
 			egresosTabla.add(egresoRegistro);
 			cajaSaldo = cajaSaldo - valor;
-			System.out.println("Se registro con exito el EGRESO: S/." + valor +"\n" +
-					"el saldo actual es: S/. " + cajaSaldo);
+			System.out.println("Se registro con exito el EGRESO: S/.-" + valor +"\n" +
+					"*** el saldo actual es: S/. " + cajaSaldo);
 		}
     
 				
 	}
 
 
-	private void egresosValidacionesSaldoCaja(int valor) {
+	private void egresosValidacionesSaldoCaja(int valor, String tipoDeEgreso, String motivo) {
 		if ((cajaSaldo - valor) <= 0 ){
 			cajaSaldoConsulta = 1;
-			System.out.println("No existe fondo, para este egreso: S/. " + valor);
+			System.out.println("No existe fondo, para " + tipoDeEgreso + " - " +
+					motivo + ": S/. " + valor);
 		}
 		
 	}

@@ -25,7 +25,7 @@ public class IngresosRegistro {
 		ingresosTabla.add(egresoRegistro);
 
 		System.out.println("Se registro con exito el INGRESO: S/." + valor +"\n" +
-		"el saldo actual es: S/. " + EgresosRegistros.cajaSaldo);
+		"***el saldo actual es: S/. " + EgresosRegistros.cajaSaldo);
 
 	}
 
