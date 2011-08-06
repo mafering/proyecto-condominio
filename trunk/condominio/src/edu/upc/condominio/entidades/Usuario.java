@@ -1,7 +1,8 @@
 package edu.upc.condominio.entidades;
 
-public class Usuario {
-
+public class Usuario{
+	
+	Residente residente;
 	String idUsuario;
 	String nombreUsuario;
 	TipoUsuario tipoUsuario;
@@ -13,6 +14,15 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 		this.vivienda = vivienda;
 	}
+	
+	public Usuario(String idUsuario, String nombreUsuario, TipoUsuario tipoUsuario, Vivienda vivienda, Residente residente){
+		this.idUsuario =idUsuario; 
+		this.nombreUsuario = nombreUsuario;
+		this.tipoUsuario =tipoUsuario; 
+		this.residente = residente;
+		this.vivienda = vivienda;
+	}
+	
 	
 	public Usuario(){
 		
@@ -44,6 +54,12 @@ public class Usuario {
 	}
 	public void setVivienda(Vivienda vivienda) {
 		this.vivienda = vivienda;
+	}
+	public Residente getResidente() {
+		return residente;
+	}
+	public void setResidente(Residente residente) {
+		this.residente = residente;
 	}
 	
 	
