@@ -41,10 +41,12 @@ public class ConsultaDeMorososTests {
 		registroVivienda.registrarVivienda("D2012", "D2 A", 123, 90,"DPTO.", "45012212");
 		ArrayList<Vivienda> lstVivienda=registroVivienda.getVivienda();
 		
+		
+		
 		ColocacionCuota obj=new ColocacionCuota();
-		obj.registrarCuotas("V0102",2011,110.4, format.parse("2011/07/30"));
-		obj.registrarCuotas("D1201",2011, 250.8,format.parse("2011/07/28"));
-		obj.registrarCuotas("D2012", 2011,330.20, format.parse("2011/10/28"));
+		obj.registrarCuotas(registroVivienda.getVivienda("V0102"),2011,110.4, format.parse("2011/07/30"),"", null);
+		obj.registrarCuotas(registroVivienda.getVivienda("D1201"),2011, 250.8,format.parse("2011/07/28"),"", null);
+		obj.registrarCuotas(registroVivienda.getVivienda("D2012"),2011,330.20, format.parse("2011/10/28"),"", null);
 		
 		ArrayList<Cuota> lstCuotas=obj.getCuotas();
 		
