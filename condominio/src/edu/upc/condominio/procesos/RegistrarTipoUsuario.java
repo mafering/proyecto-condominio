@@ -16,7 +16,7 @@ public class RegistrarTipoUsuario {
 			return tipoUsuarios;
 		}
 		
-		void registrarTipoUsuario(int idTipoUsuario, String descripcion) {
+		public void registrarTipoUsuario(int idTipoUsuario, String descripcion) {
 			TipoUsuario tipoUsuario= new TipoUsuario(idTipoUsuario, descripcion);
 			tipoUsuarios.add(tipoUsuario);
 		}

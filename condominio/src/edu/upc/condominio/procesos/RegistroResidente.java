@@ -2,6 +2,7 @@ package edu.upc.condominio.procesos;
 
 import java.util.ArrayList;
 import edu.upc.condominio.entidades.Residente; 
+import edu.upc.condominio.entidades.Visitante;
 public class RegistroResidente {
 
 	private ArrayList<Residente> residentes;
@@ -15,7 +16,7 @@ public class RegistroResidente {
 		return residentes;
 	}
 	
-	void registrarResidente(String dni, String nombres, String apellidos,int edad, 
+	public void registrarResidente(String dni, String nombres, String apellidos,int edad, 
     String correo,String clave){
 		
 		buscarDni(dni);
@@ -39,5 +40,15 @@ public class RegistroResidente {
 			}
 		}
 	}
+	public Residente getResidente(String dni) {
+		Residente resultado = new Residente();
+		for(Residente residente: residentes){
+			if(residente.getDni().equals(dni)){
+				resultado = residente;
+			}
+		}
+		return resultado;
+	}
+	
 
 }

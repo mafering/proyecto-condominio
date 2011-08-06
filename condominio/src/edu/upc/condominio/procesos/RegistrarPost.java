@@ -8,31 +8,48 @@ import edu.upc.condominio.entidades.Usuario;
 
 public class RegistrarPost {
 
-	private ArrayList<Post> posts;
+	public ArrayList<Post> posts;
 
 	public RegistrarPost() {
-		posts= new ArrayList<Post>();
+		posts = new ArrayList<Post>();
 	}
 
 	public ArrayList<Post> getPost() {
 		return posts;
 	}
 	
-	void registrarPost(String idPost, String nombrePost, Seccion seccion, Usuario usuario) {
+	public void registraPost(String idPost, String nombrePost, Seccion seccion, Usuario usuario) {
+
+
+		if (usuario.getTipoUsuario().getIdTipoUsuario()==3) {
+				throw new RuntimeException("No Puede Crear Post");
+		}
+
+		
 		Post post= new Post( idPost,  nombrePost,  seccion,  usuario);
 		posts.add(post);
 	}
 	
-	/*
-	public Visitante getVisitante(String dni) {
-		Visitante resultado = new Visitante();
-		for(Visitante visitante: visitantes){
-			if(visitante.getDni().equals(dni)){
-				resultado = visitante;
+	public Post getPost(String idPost) {
+		Post resultado = new Post();
+		for(Post post: posts){
+			if(post.getIdPost().equals(idPost)){
+				resultado = post;
 			}
 		}
 		return resultado;
 	}
-	*/
+	public Post getPost(String idPost, Usuario usuario) {
+		if(usuario.getTipoUsuario().getIdTipoUsuario()==3 && !idPost.equals("P003")){
+			throw new RuntimeException("Solo Puede Visualizar el Post de Comite"); 
+		}
+		Post resultado = new Post();
+		for(Post post: posts){
+			if(post.getIdPost().equals(idPost)){
+				resultado = post;
+			}
+		}
+		return resultado;
+	}
 	
 }

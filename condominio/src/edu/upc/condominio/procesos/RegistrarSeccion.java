@@ -17,21 +17,19 @@ public class RegistrarSeccion {
 		return secciones;
 	}
 	
-	void registrarSeccion(String idSeccion, String descripcion) {
+	public void registrarSeccion(String idSeccion, String descripcion) {
 		Seccion seccion= new Seccion(idSeccion, descripcion);
 		secciones.add(seccion);
 	}
 	
-	/*
-	public Visitante getVisitante(String dni) {
-		Visitante resultado = new Visitante();
-		for(Visitante visitante: visitantes){
-			if(visitante.getDni().equals(dni)){
-				resultado = visitante;
+	public Seccion getSeccion(String idSeccion) {
+		Seccion resultado = new Seccion();
+		for(Seccion seccion: secciones){
+			if(seccion.getIdSeccion().equals(idSeccion)){
+				resultado = seccion;
 			}
 		}
 		return resultado;
 	}
-	*/
 	
 }

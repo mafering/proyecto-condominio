@@ -19,7 +19,9 @@ public class Residente {
 		this.correo=correo;
 		this.clave=clave;
 	}
-	
+	public Residente(){
+		
+	}
 	public String getDni(){
 		return this.dni;
 	}
