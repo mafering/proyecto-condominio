@@ -5,13 +5,17 @@ public class Visitante {
 	public String dni;
 	public String nombres;
 	public String apellidos;
-
+	
+	
 	public Visitante(String dni, String nombres, String apellidos) {
 		this.dni = dni;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 	}
-
+	
+	public Visitante() {
+	}
+	
 	public String getDni() {
 		return dni;
 	}

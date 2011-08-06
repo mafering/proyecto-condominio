@@ -20,4 +20,14 @@ public class RegistroVisitante {
 		 visitantes.add(visitante);
 	}
 	
+	public Visitante getVisitante(String dni) {
+		Visitante resultado = new Visitante();
+		for(Visitante visitante: visitantes){
+			if(visitante.getDni().equals(dni)){
+				resultado = visitante;
+			}
+		}
+		return resultado;
+	}
+	
 }
