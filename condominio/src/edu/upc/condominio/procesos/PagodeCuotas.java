@@ -5,10 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import edu.upc.condominio.entidades.Cuota;
+import edu.upc.condominio.entidades.Vivienda;
 
 public class PagodeCuotas {
 
 	public ArrayList<Cuota> listaCuotas;
+	
+	public PagodeCuotas(){}
+	
 	
 	public PagodeCuotas(ArrayList<Cuota> listaCuotas){
 		this.listaCuotas=listaCuotas;
@@ -27,18 +31,22 @@ public class PagodeCuotas {
 		
 	}
 	
-    public String PagarCuota(Cuota pago){
+
+	public void PagarPeriodoCuota(String viviendaId, int periodo,
+			String tipoPago) {
 		
-    	int i=0;
-    	for(Cuota bean:listaCuotas){			
-			if(bean.getVivienda().equals(pago.getVivienda()) && bean.getTipoPago()==null){		
-				listaCuotas.set(i,pago);
-				return "OK PAGO "+pago.getFechaPago();
-			}	
-			i++;
+		
+		for(Cuota bean:listaCuotas){			
+			if(bean.getVivienda().equals(viviendaId) && bean.getPeriodo()==periodo){		
+				//listaCuotas.set(i,pago);
+				bean.setTipoPago(tipoPago);
+				System.out.println("Pago Realizado:" + viviendaId + " del periodo: " +  periodo);
+				//  bean.setFechaPago("15/07/2011");
+			}
+		
 		}
+
 		
-		return "NO SE PAGO";
 	}
 	
 }

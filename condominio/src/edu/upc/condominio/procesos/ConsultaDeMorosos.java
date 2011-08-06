@@ -51,9 +51,9 @@ public class ConsultaDeMorosos {
 				lstDeuda.add(bean);
 				for(Vivienda vivienda:listaViviendas)
 					{
-					if(vivienda.getIdVivienda().equals(bean.getCodigoVivienda()))
+					if(vivienda.getIdVivienda().equals(bean.getVivienda().getIdVivienda()))
 						{
-						viviendaCodigo =  bean.getCodigoVivienda();
+						viviendaCodigo =  bean.getVivienda().getIdVivienda() ;
 						viviendaUbicacion =  vivienda.getUbicacion();						
 						
 						for(Residente residente:listaResidentes)
@@ -78,9 +78,9 @@ public class ConsultaDeMorosos {
 				lstDeuda.add(bean);
 				for(Vivienda vivienda:listaViviendas)
 					{
-					if(vivienda.getIdVivienda().equals(bean.getCodigoVivienda()))
+					if(vivienda.getIdVivienda().equals(bean.getVivienda().getIdVivienda()))
 						{
-						viviendaCodigo =  bean.getCodigoVivienda();
+						viviendaCodigo =  bean.getVivienda().getIdVivienda();
 						viviendaUbicacion =  vivienda.getUbicacion();						
 						
 						for(Residente residente:listaResidentes)
