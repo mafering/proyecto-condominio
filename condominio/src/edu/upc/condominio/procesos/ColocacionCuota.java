@@ -1,5 +1,6 @@
 package edu.upc.condominio.procesos;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,20 +17,22 @@ public class ColocacionCuota {
 		cuotas = new ArrayList<Cuota>();
 	}
 	
-	public void registrarCuotas(String codigoVivienda, int periodo, 
-								double importe, Date fechaVencimiento){
+	public void registrarCuotas(Vivienda vivienda, int periodo, 
+								double importe, Date fechaVencimiento, String tipoPago, Date fechaPago){
 		
 		for(Cuota cuota: cuotas){
-			if (cuota.getCodigoVivienda().equals(codigoVivienda) && 
+			if (cuota.getVivienda().equals(vivienda) && 
 					cuota.getPeriodo() == periodo)	
 				{
-					throw new RuntimeException("Cuota ya ha sido Registrada para la vivienda y Periodo");
+					throw new RuntimeException("Cuota ya ha sido Registrada para la Vivienda y Periodo");
 				}
 		}
-		Cuota cuota = new Cuota(codigoVivienda, 
-				periodo, importe, fechaVencimiento );
+		
+		Cuota cuota = new Cuota(vivienda, periodo, importe, fechaVencimiento, tipoPago, fechaPago);
 		cuotas.add(cuota);
-	
+		System.out.println("Se registro con exito la CUOTA: " + periodo + " S/." + importe +
+				" para la vivienda: " + vivienda.getIdVivienda());
+		
 	}
 	
 	public ArrayList<Cuota>  getCuotas(){
@@ -37,11 +40,11 @@ public class ColocacionCuota {
 	}
 	
 	
-	public ArrayList<Cuota> buscaCuotasPorVivienda(String codigoVivienda){
+	public ArrayList<Cuota> buscaCuotasPorVivienda(Vivienda vivienda){
 		ArrayList<Cuota> resultado = new ArrayList<Cuota>();
 		for(Cuota cuota: cuotas)
 		{
-			if (cuota.getCodigoVivienda().equals(codigoVivienda)){
+			if (cuota.getVivienda().equals(vivienda)){
 				resultado.add(cuota);
 			}
 			
@@ -49,11 +52,11 @@ public class ColocacionCuota {
 		return resultado;
 	}
 	
-	public Cuota  buscaCuotaPorViviendaYPeriodo(String codigoVivienda, int periodo){
+	public Cuota  buscaCuotaPorViviendaYPeriodo(Vivienda vivienda, int periodo){
 		Cuota cuotaResultado= new Cuota();
 		for(Cuota cuota: cuotas)
 		{
-			if (cuota.getCodigoVivienda().equals(codigoVivienda) && 
+			if (cuota.getVivienda().equals(vivienda) && 
 				cuota.getPeriodo() == periodo)	
 			{
 				cuotaResultado = cuota;
