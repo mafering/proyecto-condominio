@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.upc.condominio.entidades.Usuario;
+
 
 
 public class TipoUsuarioTests {
@@ -14,14 +16,27 @@ public class TipoUsuarioTests {
 	RegistrarTipoUsuario regTipoUsuario ;
 	RegistrarUsuario regUsuario ;
 	RegistroVivienda regVivienda ;
+	RegistroResidente registroresidente= new RegistroResidente();
+	
+	ArrayList<Usuario> listaUsuarios;
 	
 	@Before
 	public void Inicio() throws Exception {
 		//Creando Vivienda
+		regVivienda = new RegistroVivienda();
 		regVivienda.registrarVivienda("viv0001", "los alamos", 1758, 25.5,"casa", "res0001");
 		regVivienda.registrarVivienda("viv0002", "panamerica", 2145,100.5, "edificio", "res0001");
 		regVivienda.registrarVivienda("viv0003", "santa rosa", 4201, 90.5,"casa", "res0002");
 		regVivienda.registrarVivienda("viv0004", "lurigancho", 782, 120.5,"Edificio", "res0003");
+		
+		//Creando Residente
+
+		registroresidente= new RegistroResidente();
+		registroresidente.registrarResidente("12345678", "Eva María", "Terrazas Garcia",25, "evamaria@hotmail.com", "12345");
+	 
+		registroresidente.registrarResidente("12345679", "José Antonio", "Lopez Roque",41, "joseantonio@hotmail.com", "12367");
+	
+		registroresidente.registrarResidente("12345677", "Cesar Gustavo", "Aguilar Cardenas",32, "cesargustavo@hotmail.com", "12389");
 		
 		//Registrando Tipos de Usuario
 		regTipoUsuario = new RegistrarTipoUsuario();
@@ -40,10 +55,26 @@ public class TipoUsuarioTests {
 				regTipoUsuario.getTipoUsuario(3), regVivienda.getVivienda("viv0003"));
 		regUsuario.registrarUsuario("u004", "Usuario Prueba 4", 
 				regTipoUsuario.getTipoUsuario(4), regVivienda.getVivienda("viv0004"));
+		
+		listaUsuarios = regUsuario.getUsuarios();
 	}
 	
+	Usuario usuario; 
 	@Test
-	public void consultarVisitantes() {
+	public void testTipoUsuarioContacto() {
+		usuario = regUsuario.getUsuarios("u001");
+		regUsuario.registrarUsuario("u005", "Usuario Prueba 5", 
+				regTipoUsuario.getTipoUsuario(3), regVivienda.getVivienda("viv0003"));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}
