@@ -35,5 +35,16 @@ public class RegistroVivienda {
 
 		}
 	}
+	
+	public Vivienda getVivienda(String idVivienda) {
+		Vivienda resultado = new Vivienda();
+		for (Vivienda vivienda : viviendas) {
+			if (vivienda.getIdVivienda().equals(idVivienda)) {
+				resultado = vivienda;
+			}
+
+		}
+		return resultado;
+	}
 
 }
