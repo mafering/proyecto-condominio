@@ -34,7 +34,10 @@ public class Vivienda {
 		this.tipo = tipo;
 		this.idResidente = idResidente;
 	}
-
+	public Vivienda(){
+		
+	}
+			
 	public String getIdVivienda() {
 		return idVivienda;
 	}
