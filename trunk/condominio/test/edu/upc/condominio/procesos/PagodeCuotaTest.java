@@ -19,24 +19,35 @@ import static org.junit.Assert.fail;
  *
  * @author Administrador
  */
-public class PagodeCuotaTest {
 
+public class PagodeCuotaTest {
+	
+	ColocacionCuota cuota;
+	RegistroVivienda regVivienda;
+	
+	 PagodeCuotas pago; 
+	
+	
 	@Test
 	public void PagodeCuotas() throws ParseException {
 
-		SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
-		Date fecha=format.parse("2011/07/22");
 		
-		
-		ColocacionCuota obj=new ColocacionCuota();
-		obj.registrarCuotas("viv0001",201110,10.4, format.parse("2011/07/21"));
-		obj.registrarCuotas("viv0002",201111, 50.8,format.parse("2011/07/23"));
-		obj.registrarCuotas("viv0003", 201112,30.8, format.parse("2011/07/13"));
-		PagodeCuota obj_cuotas=new PagodeCuota(obj.getCuotas());
-		assertEquals(3, obj_cuotas.listaCuotas.size());
-		obj_cuotas.PagarCuota("viv0001",201110,"C");
-		assertEquals(2, obj_cuotas.listaCuotas.size());
+		//Creando Vivienda
+		regVivienda = new RegistroVivienda();
+		regVivienda.registrarVivienda("viv0001", "los alamos", 1758, 25.5,"casa", "res0001");
+		regVivienda.registrarVivienda("viv0002", "panamerica", 2145,100.5, "edificio", "res0001");
+		regVivienda.registrarVivienda("viv0003", "santa rosa", 4201, 90.5,"casa", "res0002");
+		regVivienda.registrarVivienda("viv0004", "lurigancho", 782, 120.5,"Edificio", "res0003");
 
+		cuota = new ColocacionCuota();
+		cuota.registrarCuotas(regVivienda.getVivienda("viv0001"), 201101, 150.00, new SimpleDateFormat("dd/MM/yyyy").parse("10/07/2011"), "", null);
+		cuota.registrarCuotas(regVivienda.getVivienda("viv0001"), 201102, 180.00, new SimpleDateFormat("dd/MM/yyyy").parse("10/08/2011"), "", null);
+		cuota.registrarCuotas(regVivienda.getVivienda("viv0001"), 201103, 150.00, new SimpleDateFormat("dd/MM/yyyy").parse("10/09/2011"), "", null);
+				
+				
+		pago = new PagodeCuotas(cuota.getCuotas());
+		pago.PagarPeriodoCuota("viv0001", 201101, "contado");
+		
 
 
 	}
