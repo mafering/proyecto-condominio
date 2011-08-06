@@ -5,13 +5,13 @@ public class Mensaje {
 	private String idMensaje;
 	private Post post;
 	private String contenido;
-	private Contacto contacto;
+	private Usuario usuario ;
 	
-	public Mensaje(String idMensaje,  Post post, String contenido, Contacto contacto){
+	public Mensaje(String idMensaje,  Post post, String contenido, Usuario usuario){
 		this.idMensaje = idMensaje;
 		this.post = post;
 		this.contenido = contenido;
-		this.contacto = contacto;
+		this.usuario = usuario;
 	}
 	public Mensaje(){}
 
@@ -39,12 +39,12 @@ public class Mensaje {
 		this.contenido = contenido;
 	}
 
-	public Contacto getContacto() {
-		return contacto;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setContacto(Contacto contacto) {
-		this.contacto = contacto;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	

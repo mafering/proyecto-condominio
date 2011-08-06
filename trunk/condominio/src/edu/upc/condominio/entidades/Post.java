@@ -13,6 +13,9 @@ public class Post {
 		this.seccion = seccion;
 		this.usuario = usuario;
 	}
+	public Post(){
+		
+	}
 
 	public String getIdPost() {
 		return idPost;
