@@ -9,16 +9,57 @@ import edu.upc.condominio.entidades.Vivienda;
 
 public class PagodeCuotas {
 
-	public ArrayList<Cuota> listaCuotas;
+	//public ArrayList<Cuota> listaCuotas;
+	 ArrayList<Cuota> lista=new  ArrayList<Cuota>();
+	 ArrayList<Cuota> listadeuda=new ArrayList<Cuota>();
+	
 	
 	public PagodeCuotas(){}
 	
+//	private ArrayList<Cuota> cuotasporpagar;
 	
-	public PagodeCuotas(ArrayList<Cuota> listaCuotas){
-		this.listaCuotas=listaCuotas;
+	public void agregar(Cuota ent){
+		lista.add(ent);
+		}
+	public ArrayList<Cuota> listardeudas(){
+		 ArrayList<Cuota> listadeuda=new ArrayList<Cuota>();
+		for (Cuota ent1:lista){
+			if(ent1.getTipoPago().equals("")){
+			listadeuda.add(ent1);			
+			}
+		}
+		return listadeuda;	
+		}
+	
+	public ArrayList<Cuota> getCuotas(){
+		//listar(lista);
+		return lista;
 	}
 	
-	public ArrayList<Cuota> listaCuotas(String codVivienda){
+	
+	
+	public void acualizar(Cuota ent){
+		// ArrayList<Cuota> listadeuda=new ArrayList<Cuota>();
+		int c=0;
+		for (Cuota ent1: lista){
+		if(ent1.getVivienda().equals(ent.getVivienda())){
+		lista.set(c, ent);
+		return;
+		}
+		c++;
+
+		}
+		//return listadeuda;
+		}
+	
+
+		}
+	
+/*	public PagodeCuotas(ArrayList<Cuota> listaCuotas){
+		this.listaCuotas=listaCuotas;
+	}*/
+	
+	/*public ArrayList<Cuota> listaCuotas(String codVivienda){
 		
 		ArrayList<Cuota> lstDeuda=new ArrayList<Cuota>();
 		for(Cuota bean:listaCuotas){			
@@ -29,7 +70,20 @@ public class PagodeCuotas {
 		
 		return lstDeuda;
 		
-	}
+	}*/
+	
+/*	
+public String listar(){
+	
+}
+		ArrayList<Cuota> lstDeuda=new ArrayList<Cuota>();
+		for(Cuota bean:listaCuotas){			
+			if(bean.getVivienda().equals(listacuotas.)) && bean.getTipoPago()==null){		
+				lstDeuda.add(bean);
+			}			
+		}
+		
+		return lstDeuda;
 	
 
 	public void PagarPeriodoCuota(String viviendaId, int periodo,
@@ -49,4 +103,4 @@ public class PagodeCuotas {
 		
 	}
 	
-}
+}*/
