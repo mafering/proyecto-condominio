@@ -20,8 +20,9 @@ public class ConsultaDeMorosos {
 		this.listaViviendas=listaViviendas;
 		this.listaResidentes=listaResidentes;
 	}
+	 
 	
-
+/*
 	public ArrayList<Cuota> listaCuotasMorosos(Date fecha){
 	
 		SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
@@ -112,7 +113,7 @@ public class ConsultaDeMorosos {
 		return lstDeuda;
 		
 	}
-	
+	*/
     
 	
 	

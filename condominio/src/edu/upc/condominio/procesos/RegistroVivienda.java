@@ -2,6 +2,7 @@ package edu.upc.condominio.procesos;
 
 import java.util.ArrayList;
 
+import edu.upc.condominio.entidades.Residente;
 import edu.upc.condominio.entidades.Vivienda;
 
 public class RegistroVivienda {
@@ -18,19 +19,19 @@ public class RegistroVivienda {
 	}
 
 	public void registrarVivienda(String idVivienda, String ubicacion,
-			int numero, double metraje, String tipo, String idResidente) {
+			int numero, double metraje, String tipo, Residente residente) {
 
-		consultaUbicacion(ubicacion);
+		consultaVivienda(idVivienda);
 		Vivienda vivienda = new Vivienda(idVivienda, ubicacion, numero,
-				metraje, tipo, idResidente);
+				metraje, tipo, residente);
 		viviendas.add(vivienda);
 	}
 
-	public void consultaUbicacion(String ubicacion) {
+	public void consultaVivienda(String idVivienda) {
 		for (Vivienda vivienda : viviendas) {
-			if (vivienda.getUbicacion().equals(ubicacion)) {
+			if (vivienda.getIdVivienda().equals(idVivienda)) {
 				throw new RuntimeException(
-						"ya se encuentra registrada la ubicacion");
+						"ya se encuentra registrada la vivienda");
 			}
 
 		}
@@ -42,7 +43,6 @@ public class RegistroVivienda {
 			if (vivienda.getIdVivienda().equals(idVivienda)) {
 				resultado = vivienda;
 			}
-
 		}
 		return resultado;
 	}
