@@ -17,9 +17,49 @@ public class AreaComun {
 	this.estado=estado;
 
 	}
-
+/*
 	public String gettipoArea(){
 		return this.tipoArea;
+	}*/
+
+	public String getIdAreaComun() {
+		return idAreaComun;
+	}
+
+	public void setIdAreaComun(String idAreaComun) {
+		this.idAreaComun = idAreaComun;
+	}
+
+	public String getTipoArea() {
+		return tipoArea;
+	}
+
+	public void setTipoArea(String tipoArea) {
+		this.tipoArea = tipoArea;
+	}
+
+	public String getUbicación() {
+		return ubicación;
+	}
+
+	public void setUbicación(String ubicación) {
+		this.ubicación = ubicación;
+	}
+
+	public Integer getCapacidadPersonas() {
+		return capacidadPersonas;
+	}
+
+	public void setCapacidadPersonas(Integer capacidadPersonas) {
+		this.capacidadPersonas = capacidadPersonas;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 }

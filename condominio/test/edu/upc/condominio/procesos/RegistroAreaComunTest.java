@@ -5,6 +5,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import edu.upc.condominio.entidades.AreaComun;
+
 public class RegistroAreaComunTest {
 	
 	@Test
@@ -25,6 +27,15 @@ public class RegistroAreaComunTest {
 			fail();
 		}catch(Exception ex){
 			assertEquals("AREA YA REGISTRADO",ex.getMessage());
+			System.out.println(ex.getMessage());
+			
+		}
+
+		try{
+			registroareacomun.acualizar(new AreaComun("A04", "Piscina", "Bloque01", 100, "Mantenimiento"));
+			fail();
+		}catch(Exception ex){
+			assertEquals("AREA NO ENCONTRADA VERIFIQUE",ex.getMessage());
 			System.out.println(ex.getMessage());
 			
 		}
