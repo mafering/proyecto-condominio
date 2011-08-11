@@ -6,7 +6,6 @@ public class Vivienda {
 	private int numero;
 	private double metraje;
 	private String tipo;
-	private String idResidente;
 	
 	//------ ATILIO--------
 	
@@ -25,14 +24,14 @@ public class Vivienda {
 	// -----------------------------
 
 	public Vivienda(String idVivienda, String ubicacion, int numero,
-			double metraje, String tipo, String idResidente) {
+			double metraje, String tipo, Residente residente) {
 
 		this.idVivienda = idVivienda;
 		this.ubicacion = ubicacion;
 		this.numero = numero;
 		this.metraje = metraje;
 		this.tipo = tipo;
-		this.idResidente = idResidente;
+		this.residente = residente;
 	}
 	public Vivienda(){
 		
@@ -77,13 +76,4 @@ public class Vivienda {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
-	public String getIdResidente() {
-		return idResidente;
-	}
-
-	public void setIdResidente(String idResidente) {
-		this.idResidente = idResidente;
-	}
-
 }

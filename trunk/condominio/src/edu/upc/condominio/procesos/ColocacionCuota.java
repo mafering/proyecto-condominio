@@ -18,10 +18,12 @@ public class ColocacionCuota {
 	}
 	
 	public void registrarCuotas(Vivienda vivienda, int periodo, 
-								double importe, Date fechaVencimiento, String tipoPago, Date fechaPago){
+								double importe, Date fechaVencimiento){
+		String tipoPago = "";
+		Date fechaPago = null;
 		
 		for(Cuota cuota: cuotas){
-			if (cuota.getVivienda().equals(vivienda) && 
+			if (cuota.getVivienda().getIdVivienda().equals(vivienda.getIdVivienda()) && 
 					cuota.getPeriodo() == periodo)	
 				{
 					throw new RuntimeException("Cuota ya ha sido Registrada para la Vivienda y Periodo");
@@ -30,8 +32,6 @@ public class ColocacionCuota {
 		
 		Cuota cuota = new Cuota(vivienda, periodo, importe, fechaVencimiento, tipoPago, fechaPago);
 		cuotas.add(cuota);
-		System.out.println("Se registro con exito la CUOTA: " + periodo + " S/." + importe +
-				" para la vivienda: " + vivienda.getIdVivienda());
 		
 	}
 	
@@ -52,7 +52,7 @@ public class ColocacionCuota {
 		return resultado;
 	}
 	
-	public Cuota  buscaCuotaPorViviendaYPeriodo(Vivienda vivienda, int periodo){
+	public Cuota  getCuota(Vivienda vivienda, int periodo){
 		Cuota cuotaResultado= new Cuota();
 		for(Cuota cuota: cuotas)
 		{

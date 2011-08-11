@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 
 	public class IngresosyEgresosRegistrosTest {
-
+/*
 		RegistrarTipoUsuario regTipoUsuario ;
 		RegistrarUsuario regUsuario ;
 		RegistroVivienda regVivienda ;
@@ -60,5 +60,5 @@ import static org.junit.Assert.assertEquals;
 			
 			
 		}
-		
+	*/	
 	}

@@ -5,22 +5,34 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import edu.upc.condominio.entidades.Cuota;
+import edu.upc.condominio.entidades.Visita;
 import edu.upc.condominio.entidades.Vivienda;
 
 public class PagodeCuotas {
 
 	//public ArrayList<Cuota> listaCuotas;
-	 ArrayList<Cuota> lista=new  ArrayList<Cuota>();
+	 ArrayList<Cuota> lista;
 	 ArrayList<Cuota> listadeuda=new ArrayList<Cuota>();
 	
 	
-	public PagodeCuotas(){}
+	public PagodeCuotas(ArrayList<Cuota> lista){
+		this.lista = lista;
+	}
 	
 //	private ArrayList<Cuota> cuotasporpagar;
 	
 	public void agregar(Cuota ent){
 		lista.add(ent);
 		}
+	public void pagarCuota(Cuota cuota, String tipoPago, Date fechaPago)
+	{		
+		int posicion = lista.indexOf(cuota);
+		Cuota pagoCuota= lista.get(posicion);
+		pagoCuota.setTipoPago(tipoPago);
+		pagoCuota.setFechaPago(fechaPago);
+		lista.set(posicion, pagoCuota);
+		
+	}
 	public ArrayList<Cuota> listardeudas(){
 		 ArrayList<Cuota> listadeuda=new ArrayList<Cuota>();
 		for (Cuota ent1:lista){
