@@ -11,19 +11,19 @@ public class Visita {
 	private Visitante visitante;
 	private Vivienda vivienda;
 	
-	public Visita(Visitante visitante, String idVivienda, Date fechaHoraVisita)
+	public Visita(Visitante visitante, Vivienda vivienda, Date fechaHoraVisita)
 	{
 		this.fechaHoraVisita = fechaHoraVisita;
 		this.visitante = visitante;
-		this.idVivienda = idVivienda;
+		this.vivienda = vivienda;
 	} 
 	
-	public Visita(Visitante visitante, String idVivienda, 
+	public Visita(Visitante visitante, Vivienda vivienda, 
 			Date fechaHoraIngreso, Date fechaHoraSalida)
 	{
 		this.fechaHoraIngreso = fechaHoraIngreso;
 		this.fechaHoraSalida = fechaHoraSalida;
-		this.idVivienda = idVivienda;
+		this.vivienda = vivienda;
 	} 
 	
 	public String getIdVivienda() {

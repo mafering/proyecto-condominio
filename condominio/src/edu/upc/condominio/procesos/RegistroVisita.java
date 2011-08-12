@@ -26,9 +26,9 @@ public class RegistroVisita {
 	 */
 	
 	public Visita registrarVisita(Visitante visitante, 
-								String idVivienda, Date fechaHoraVisita){
+								Vivienda vivienda, Date fechaHoraVisita){
 		
-		Visita visita= new Visita(visitante, idVivienda, fechaHoraVisita);
+		Visita visita= new Visita(visitante, vivienda, fechaHoraVisita);
 		visitas.add(visita);
 		return visita;
 	}
@@ -39,7 +39,7 @@ public class RegistroVisita {
 		int posicion = visitas.indexOf(visita);
 		Visita visitaActualiza = visitas.get(posicion);
 		visitaActualiza.setFechaHoraIngreso(fechaHoraIngreso);
-		visitaActualiza.setFechaHoraSalida(fechaHoraIngreso);
+		visitaActualiza.setFechaHoraSalida(fechaHoraSalida);
 		visitas.set(posicion, visitaActualiza);
 	}
 	
@@ -47,7 +47,6 @@ public class RegistroVisita {
 	{
 		return visitas;
 	}
-	
 	
 
 }
