@@ -77,7 +77,7 @@ public class ConsultaDeMorososTests {
 	@Test
 	public void consultadeMorosos() throws ParseException {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		Date fecha = format.parse("2011/07/30");
+		Date fecha = format.parse("2011/07/31");
 		assertEquals(4, consultaMoroso.listaCuotasMorosos(fecha).size());
 	}
 	
