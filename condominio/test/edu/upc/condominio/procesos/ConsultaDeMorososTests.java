@@ -62,13 +62,8 @@ public class ConsultaDeMorososTests {
 		
 		PagodeCuotas pagoCuota=new PagodeCuotas(cuota.getCuotas());
 
-		pagoCuota.pagarCuota(
-				cuota.getCuota(regVivienda.getVivienda("viv0001"), 201106)
-				, "C", new SimpleDateFormat("dd/MM/yyyy").parse("10/07/2011") );
-		pagoCuota.pagarCuota(
-				cuota.getCuota(regVivienda.getVivienda("viv0002"), 201107)
-				, "C", new SimpleDateFormat("dd/MM/yyyy").parse("10/07/2011") );
-		
+		pagoCuota.pagarCuota(cuota.getCuota(regVivienda.getVivienda("viv0001"), 201106)	, "C", new SimpleDateFormat("dd/MM/yyyy").parse("10/07/2011") );
+		pagoCuota.pagarCuota(cuota.getCuota(regVivienda.getVivienda("viv0002"), 201107), "C", new SimpleDateFormat("dd/MM/yyyy").parse("10/07/2011") );
 		
 		consultaMoroso = new ConsultaDeMorosos(cuota.getCuotas());
 
@@ -81,44 +76,6 @@ public class ConsultaDeMorososTests {
 		assertEquals(4, consultaMoroso.listaCuotasMorosos(fecha).size());
 	}
 	
-/*
-
-	@Test
-	public void consultadeMorosos() throws ParseException {
-		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		Date fecha = format.parse("2011/07/21");
-		
-		RegistroResidente registroresidente=new RegistroResidente();
-		
-		registroresidente.registrarResidente("10401030", "Eva María", "Terrazas Garcia",25, "evamaria@hotmail.com", "clave1");
-		registroresidente.registrarResidente("40826005", "Atilio", "Tapia", 31, "atilio.tapia@hotmail.com", "1cla");
-		registroresidente.registrarResidente("45012212", "Cesar Gustavo", "Aguilar Cardenas",32, "cesargustavo@hotmail.com", "1cla2ve");
-		
-		ArrayList<Residente> lstResidente=registroresidente.getResidentes();
-		
-		RegistroVivienda registroVivienda=new RegistroVivienda();
-		registroVivienda.registrarVivienda("V0102", "B A", 102, 400,"CASA", "10401030");
-		registroVivienda.registrarVivienda("D1201", "D1 S", 122,90, "DPTO.", "40826005");
-		registroVivienda.registrarVivienda("D2012", "D2 A", 123, 90,"DPTO.", "45012212");
-		ArrayList<Vivienda> lstVivienda=registroVivienda.getVivienda();
-		
-		
-		
-		ColocacionCuota obj=new ColocacionCuota();
-		obj.registrarCuotas(registroVivienda.getVivienda("V0102"),2011,110.4, format.parse("2011/07/30"),"", null);
-		obj.registrarCuotas(registroVivienda.getVivienda("D1201"),2011, 250.8,format.parse("2011/07/28"),"", null);
-		obj.registrarCuotas(registroVivienda.getVivienda("D2012"),2011,330.20, format.parse("2011/10/28"),"", null);
-		
-		ArrayList<Cuota> lstCuotas=obj.getCuotas();
-		
-		ConsultaDeMorosos obj_morosos= new ConsultaDeMorosos(lstCuotas,lstVivienda,lstResidente);
-		// FECHA DEBE SER MAYOR A LA FECHA DE VENCIMIENTO
-		obj_morosos.listaCuotasMorosos(format.parse("2011/08/10"));
-		
-		
-	}
-	*/
 	
 	
 }
