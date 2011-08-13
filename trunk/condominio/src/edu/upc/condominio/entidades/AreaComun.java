@@ -6,41 +6,33 @@ public class AreaComun {
 	String ubicación;
 	Integer capacidadPersonas;
 	String estado;
-	
+
 	Integer cantidadPersonasPorAsistir;
 	String fecha;
 	String responsableDni;
-    String comentario;
-   
-   
-	public AreaComun(String idAreaComun, 
-												String tipoArea, 
-												String ubicación,
-												int capacidadPersonas, 
-												String estado,
-												int cantidadPersonasPorAsistir,
-												String fecha,
-												String responsableDni,
-											    String comentario											
-												){
-		
-	this.idAreaComun=idAreaComun;
-	this.tipoArea=tipoArea;
-	this.ubicación=ubicación;
-	this.capacidadPersonas=capacidadPersonas;
-	this.estado=estado;
-	
-	
-	this.cantidadPersonasPorAsistir = cantidadPersonasPorAsistir;
-	this.fecha =  fecha;
-	this.responsableDni =  responsableDni;
-	this.comentario = comentario; 
+	String comentario;
+
+	public AreaComun(String idAreaComun, String tipoArea, String ubicación,
+			int capacidadPersonas, String estado,
+			int cantidadPersonasPorAsistir, String fecha,
+			String responsableDni, String comentario) {
+
+		this.idAreaComun = idAreaComun;
+		this.tipoArea = tipoArea;
+		this.ubicación = ubicación;
+		this.capacidadPersonas = capacidadPersonas;
+		this.estado = estado;
+
+		this.cantidadPersonasPorAsistir = cantidadPersonasPorAsistir;
+		this.fecha = fecha;
+		this.responsableDni = responsableDni;
+		this.comentario = comentario;
 
 	}
-/*
-	public String gettipoArea(){
-		return this.tipoArea;
-	}*/
+
+	/*
+	 * public String gettipoArea(){ return this.tipoArea; }
+	 */
 
 	public String getIdAreaComun() {
 		return idAreaComun;
@@ -82,8 +74,6 @@ public class AreaComun {
 		this.estado = estado;
 	}
 
-
-	
 	public Integer getCantidadPersonasPorAsistir() {
 		return cantidadPersonasPorAsistir;
 	}
@@ -91,7 +81,7 @@ public class AreaComun {
 	public void setCantidadPersonasPorAsistir(Integer cantidadPersonasPorAsistir) {
 		this.cantidadPersonasPorAsistir = cantidadPersonasPorAsistir;
 	}
-	
+
 	public String getFecha() {
 		return fecha;
 	}
@@ -115,5 +105,5 @@ public class AreaComun {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
+
 }
