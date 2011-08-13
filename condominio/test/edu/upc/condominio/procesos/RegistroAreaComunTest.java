@@ -3,44 +3,52 @@ package edu.upc.condominio.procesos;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import edu.upc.condominio.entidades.AreaComun;
 
 public class RegistroAreaComunTest {
+	RegistroAreaComun registroAreaComun;
+	AreaComunSeparacion areaComunSeparar;
+	
+	@Before
+	public void Inicializar(){
+		registroAreaComun = new RegistroAreaComun();	
+		areaComunSeparar = new AreaComunSeparacion();
+	}
 	
 	@Test
-	public void registroAreasComun(){
+	public void areasComunesRegistrando(){		
+		registroAreaComun.registrar("A01", "Piscina", "Bloque01", 100, "Disponible", 0, "", "", "");
+		registroAreaComun.registrar("A02", "Gimnasio", "Bloque02", 100, "Disponible", 0, "", "", "");
+		registroAreaComun.registrar("A03", "Sauna", "Bloque03", 100, "Disponible", 0, "", "", "");
+		assertEquals(3,registroAreaComun.getAreas().size());
 		
-		RegistroAreaComun registroareacomun= new RegistroAreaComun();
-		
-		registroareacomun.registrarAreaComun("A01", "Piscina", "Bloque01", 100, "Disponible");
-		registroareacomun.registrarAreaComun("A02", "Gimnasio", "Bloque02", 100, "Disponible");
-		registroareacomun.registrarAreaComun("A03", "Sauna", "Bloque03", 100, "Disponible");
-
+		//System.out.println("Registros  agregados: " + registroAreaComun.getAreas().size());
+		}
 	
-		assertEquals(3,registroareacomun.getareas().size());
-		System.out.println("cantidad de registros  " + registroareacomun.getareas().size());
-		
-		try{
-			registroareacomun.registrarAreaComun("A01", "Piscina", "Bloque01", 100, "Disponible");
-			fail();
-		}catch(Exception ex){
-			assertEquals("AREA YA REGISTRADO",ex.getMessage());
-			System.out.println(ex.getMessage());
-			
+	@Test
+	public void areasComunesActualizadas(){		
+		registroAreaComun.actualizar("A01","Piscina", "Bloque01", 100, "En mantenimiento");
+		registroAreaComun.actualizar("A02", "Parrilla", "Bloque02", 100, "Disponible");
+		assertEquals(2,registroAreaComun.getRegistroActualizados());
 		}
-
-		try{
-			registroareacomun.acualizar(new AreaComun("A04", "Piscina", "Bloque01", 100, "Mantenimiento"));
-			fail();
-		}catch(Exception ex){
-			assertEquals("AREA NO ENCONTRADA VERIFIQUE",ex.getMessage());
-			System.out.println(ex.getMessage());
-			
-		}
-		
 	
-		}
-
+	@Test
+	public void areasComunesSeparar(){		
+		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
+		registroAreaComun.actualizar("A01", "Piscina", "Bloque01", 100, "Disponible");		
+		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
+		registroAreaComun.actualizar("A01", "Piscina", "Bloque01", 300, "Disponible");
+		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
+		
+		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
+		
+		areaComunSeparar.separar("A01", "2011/08/14", 230, "12345678", "Que limpien bien los ongos");
+		
+		
+		//assertEquals(2,areaComunSeparar.getRegistroActualizados());
+		}	
+	
 }

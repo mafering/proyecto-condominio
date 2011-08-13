@@ -2,61 +2,89 @@ package edu.upc.condominio.procesos;
 
 import java.util.ArrayList;
 
+import edu.upc.condominio.procesoslogica.AreaComunRegistroLogica;
+
+
 import edu.upc.condominio.entidades.AreaComun;
 import edu.upc.condominio.entidades.Cuota;
 
-public class RegistroAreaComun {
-private ArrayList<AreaComun> areas;
-
+public class RegistroAreaComun implements AreaComunRegistroLogica {
 	
-	public RegistroAreaComun () {	
-		areas=new ArrayList<AreaComun>();
-	}
+	private int registroExiste = 0;
+	private int registroActualizados  = 0;
 	
-	
-	public ArrayList<AreaComun> getareas(){
+    public static  ArrayList<AreaComun>  areas = new ArrayList<AreaComun>();
+    
+	public static ArrayList<AreaComun> getAreas() {
 		return areas;
 	}
-	
-	void registrarAreaComun(String idAreaComun, String tipoArea, String ubicación,int capacidadPersonas, 
-		    String estado){
+
+	public int getRegistroActualizados() {
+		return registroActualizados;
+	}
+
+	public void registrar(String idAreaComun, 
+			String tipoArea, 
+			String ubicación,
+			int capacidadPersonas, 
+			String estado,
+			int cantidadPersonasPorAsistir, 
+			String fecha,
+			String responsableDni,
+		    String comentario){
 				
-		buscartipoArea(tipoArea);
-		AreaComun areaComun=new AreaComun(idAreaComun, tipoArea, ubicación,capacidadPersonas, estado);
-		areas.add(areaComun);
-			}
+			existe(tipoArea, "Nuevo");
+			
+			if (registroExiste == 0){
+				AreaComun areaComun = new AreaComun(idAreaComun,  tipoArea, ubicación, capacidadPersonas, estado,  cantidadPersonasPorAsistir,fecha, responsableDni,comentario);
+				areas.add(areaComun);
+				System.out.println("Se registro con éxito el área común : " + tipoArea);
+			}		
+		}
 	
-	private void buscartipoArea(String tipoArea){
+	public  void existe(String idAreaComun, String momento){
+		registroExiste = 0;
 		for (AreaComun areaComun:areas){
-			if (areaComun.getTipoArea().equals(tipoArea)){
-				throw new RuntimeException("AREA YA REGISTRADO");
+			if (areaComun.getIdAreaComun().equals(idAreaComun)){
+				registroExiste = 1;
+				if(momento == "Nuevo"){
+					System.out.println("El área común: " + idAreaComun + "  existe.");	
+					}				
+				break;
 			}
 		}
 	}
 	
-	
-	public void acualizar(AreaComun area){
-		// ArrayList<Cuota> listadeuda=new ArrayList<Cuota>();
-		int c=0;
-		int d=0;
-		for (AreaComun ent1: areas){
-		if(ent1.getIdAreaComun().equals(area.getIdAreaComun())){
-		areas.set(c, area);
-		d=1;
+	public void actualizar(String idAreaComun, 
+			String tipoArea, 
+			String ubicación,
+			int capacidadPersonas, 
+			String estado){
 		
-		//return;
+		existe(idAreaComun, "Actualizacion");
+		
+		if (registroExiste == 0 ) {
+			System.out.println("El área común: " + idAreaComun + " NO existe.");
+		}else{
+				for(AreaComun areaComun:RegistroAreaComun.getAreas()){
+	
+					if(areaComun.getIdAreaComun().equals(idAreaComun)){
+	
+							areaComun.setTipoArea(tipoArea);	
+							areaComun.setUbicación(ubicación);
+							areaComun.setCapacidadPersonas(capacidadPersonas); 
+							areaComun.setEstado(estado);
+							System.out.println("El área común: " + idAreaComun + ", se ha actualizado satisfactoriamente.");
+							registroActualizados++;
+							break;
+							//mensaje = "El área común se ha reservado satisfactoriamente.";
+							//break			
+						}
+					}	
 		}
-		c++;
-		}
-		if (d==0){ 
-		throw new RuntimeException("AREA NO ENCONTRADA VERIFIQUE");
-		/*}
-		else{
-			throw new RuntimeException("AREA MODIFICADA");
-		}*/
-		}
-		//return listadeuda;
+			
 		}
 
+			
 
 }
