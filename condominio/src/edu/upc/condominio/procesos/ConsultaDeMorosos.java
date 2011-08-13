@@ -28,7 +28,9 @@ public class ConsultaDeMorosos {
 	}
 	
 	public ArrayList<Cuota> listaCuotasMorosos(Date fechaActual){
-		ArrayList<Cuota> morosos = new ArrayList<Cuota>();
+
+		     ArrayList<Cuota> morosos = new ArrayList<Cuota>();
+		     
 			for(Cuota cuota: listaCuotas){
 				
 				if ((cuota.getFechaVencimiento().compareTo(fechaActual)< 0) 

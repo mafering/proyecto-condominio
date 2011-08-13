@@ -37,6 +37,7 @@ public class RegistroAreaComunTest {
 	
 	@Test
 	public void areasComunesSeparar(){		
+		
 		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
 		registroAreaComun.actualizar("A01", "Piscina", "Bloque01", 100, "Disponible");		
 		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
@@ -44,11 +45,22 @@ public class RegistroAreaComunTest {
 		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
 		
 		areaComunSeparar.separar("A01", "2011/08/13", 230, "40826605", "Regresara mañana a 1eraq hora");
+		areaComunSeparar.separar("A01", "2011/08/13", 230, "34516798", "Competencia");
 		
 		areaComunSeparar.separar("A01", "2011/08/14", 230, "12345678", "Que limpien bien los ongos");
+		areaComunSeparar.separar("A01", "2011/08/15", 230, "12345678", "Que limpien bien los ongos");
 		
-		
-		//assertEquals(2,areaComunSeparar.getRegistroActualizados());
+		assertEquals(3,areaComunSeparar.getRegistroActualizados());
+	
 		}	
+	
+	@Test
+	public void consultaAreasComunesReservadas(){
+		
+		areaComunSeparar.listadeReservas();
+		
+		System.out.println(areaComunSeparar.getRegistroReservados());		
+		//assertEquals(2,areaComunSeparar.getRegistroReservados());
+		}
 	
 }
