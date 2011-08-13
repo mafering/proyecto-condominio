@@ -69,7 +69,7 @@ public class ConsultaVisitanteTests {
 		Visita objVisita4 = registrovisita.registrarVisita(regVisitante
 				.getVisitante("vis0003"), regVivienda.getVivienda("viv0002"),
 				new SimpleDateFormat("dd/MM/yyyy").parse("13/08/2011"));
-		
+		//confirmacion de asistencia
 		registrovisita.registrarIngresoSalidaVisita(objVisita1,
 				new SimpleDateFormat("dd/MM/yyyy hh:mm")
 						.parse("10/08/2011 10:30"), new SimpleDateFormat(

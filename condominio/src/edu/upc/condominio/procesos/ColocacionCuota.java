@@ -40,6 +40,8 @@ public class ColocacionCuota {
 	}
 	
 	
+	
+	
 	public ArrayList<Cuota> buscaCuotasPorVivienda(Vivienda vivienda){
 		ArrayList<Cuota> resultado = new ArrayList<Cuota>();
 		for(Cuota cuota: cuotas)
@@ -52,6 +54,19 @@ public class ColocacionCuota {
 		return resultado;
 	}
 	
+	public ArrayList<Cuota> buscaCuotasPendientesPorVivienda(Vivienda vivienda) {
+		ArrayList<Cuota> resultado = new ArrayList<Cuota>();
+		for (Cuota cuota : cuotas) {
+			if (cuota.getVivienda().equals(vivienda)) {
+				if (cuota.getFechaPago() == null) {
+					resultado.add(cuota);
+				}
+			}
+
+		}
+		return resultado;
+	}
+
 	public Cuota  getCuota(Vivienda vivienda, int periodo){
 		Cuota cuotaResultado= new Cuota();
 		for(Cuota cuota: cuotas)
