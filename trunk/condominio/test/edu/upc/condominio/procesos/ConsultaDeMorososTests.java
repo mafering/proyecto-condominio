@@ -1,23 +1,11 @@
 package edu.upc.condominio.procesos;
 
 import static org.junit.Assert.assertEquals;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import edu.upc.condominio.entidades.Cuota;
-import edu.upc.condominio.entidades.Residente;
-import edu.upc.condominio.entidades.Vivienda;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-
 
 public class ConsultaDeMorososTests {
 	
@@ -51,7 +39,7 @@ public class ConsultaDeMorososTests {
 				"Edificio", regResidente.getResidente("12345677"));
 
 		cuota = new ColocacionCuota();
-		cuota.registrarCuotas(regVivienda.getVivienda("viv0001"),201106,2000, new SimpleDateFormat("dd/MM/yyyy").parse("15/06/2011"));
+		cuota.registrarCuotas(regVivienda.getVivienda("viv0001"),201106,2000,new SimpleDateFormat("dd/MM/yyyy").parse("15/06/2011"));
 		cuota.registrarCuotas(regVivienda.getVivienda("viv0001"),201107,2000,new SimpleDateFormat("dd/MM/yyyy").parse("15/07/2011"));
 		cuota.registrarCuotas(regVivienda.getVivienda("viv0002"),201106,2000,new SimpleDateFormat("dd/MM/yyyy").parse("15/06/2011"));
 		cuota.registrarCuotas(regVivienda.getVivienda("viv0002"),201107,2000,new SimpleDateFormat("dd/MM/yyyy").parse("15/07/2011"));
@@ -73,7 +61,7 @@ public class ConsultaDeMorososTests {
 	public void consultadeMorosos() throws ParseException {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		Date fecha = format.parse("2011/07/31");
-		assertEquals(4, consultaMoroso.listaCuotasMorosos(fecha).size());
+		assertEquals(5, consultaMoroso.listaCuotasMorosos(fecha).size());
 	}
 	
 	
