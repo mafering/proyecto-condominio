@@ -43,10 +43,7 @@ public class IntegralTests1 {
 	}
 
 	@Test
-	public void PagandoCuotasVencidas() throws ParseException // throws
-																// ParseException
-																// {
-	{
+	public void PagandoCuotasVencidas() throws ParseException {
 
 		PagodeCuotas pagoCuota = new PagodeCuotas(cuota.getCuotas());
 		ConsultaDeMorosos consultaMoroso = new ConsultaDeMorosos(
