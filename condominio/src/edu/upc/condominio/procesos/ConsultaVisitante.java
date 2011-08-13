@@ -23,7 +23,12 @@ public class ConsultaVisitante {
 			Calendar fecha = null;
 			try{
 				fecha = Calendar.getInstance();
-				fecha.setTime(visita.getFechaHoraIngreso());
+				if(visita.getFechaHoraIngreso() != null){
+					fecha.setTime(visita.getFechaHoraIngreso());	
+				}else{
+					fecha = null;
+				}
+				
 			}catch(Exception ex){}
 			
 			if (fecha != null)
