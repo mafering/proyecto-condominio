@@ -7,8 +7,9 @@ public class AreaComun {
 	Integer capacidadPersonas;
 	String estado;
 	
+	Integer cantidadPersonasPorAsistir;
 	String fecha;
-	String responsable;
+	String responsableDni;
     String comentario;
    
    
@@ -17,8 +18,9 @@ public class AreaComun {
 												String ubicación,
 												int capacidadPersonas, 
 												String estado,
+												int cantidadPersonasPorAsistir,
 												String fecha,
-												String responsable,
+												String responsableDni,
 											    String comentario											
 												){
 		
@@ -28,8 +30,10 @@ public class AreaComun {
 	this.capacidadPersonas=capacidadPersonas;
 	this.estado=estado;
 	
+	
+	this.cantidadPersonasPorAsistir = cantidadPersonasPorAsistir;
 	this.fecha =  fecha;
-	this.responsable =  responsable;
+	this.responsableDni =  responsableDni;
 	this.comentario = comentario; 
 
 	}
@@ -79,6 +83,15 @@ public class AreaComun {
 	}
 
 
+	
+	public Integer getCantidadPersonasPorAsistir() {
+		return cantidadPersonasPorAsistir;
+	}
+
+	public void setCantidadPersonasPorAsistir(Integer cantidadPersonasPorAsistir) {
+		this.cantidadPersonasPorAsistir = cantidadPersonasPorAsistir;
+	}
+	
 	public String getFecha() {
 		return fecha;
 	}
@@ -87,12 +100,12 @@ public class AreaComun {
 		this.fecha = fecha;
 	}
 
-	public String getResponsable() {
-		return responsable;
+	public String getResponsableDni() {
+		return responsableDni;
 	}
 
-	public void setResponsable(String responsable) {
-		this.responsable = responsable;
+	public void setResponsableDni(String responsableDni) {
+		this.responsableDni = responsableDni;
 	}
 
 	public String getComentario() {
