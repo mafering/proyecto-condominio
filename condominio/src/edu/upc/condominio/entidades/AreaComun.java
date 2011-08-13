@@ -6,7 +6,12 @@ public class AreaComun {
 	String ubicación;
 	Integer capacidadPersonas;
 	String estado;
-
+	
+	String fecha;
+	String responsable;
+    String comentario;
+   
+   
 	public AreaComun(String idAreaComun, String tipoArea, String ubicación,int capacidadPersonas, 
 	        String estado){
 
@@ -62,4 +67,29 @@ public class AreaComun {
 		this.estado = estado;
 	}
 
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getResponsable() {
+		return responsable;
+	}
+
+	public void setResponsable(String responsable) {
+		this.responsable = responsable;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+	
 }
