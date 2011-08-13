@@ -15,16 +15,16 @@ public class RegistroVisitanteTest {
 
 	@Test
 	public void registrarUnVisitante() {
-		registroVisitante.registrarVisitante("vis0001", "jaime", "ruiz");
+		registroVisitante.registrarVisitante("90488299", "jaime", "ruiz");
 		assertEquals(1, registroVisitante.getVisitante().size());
 	}
 
 	@Test
 	public void registrarVariosVisitantes() {
-		registroVisitante.registrarVisitante("vis0001", "mirtha", "jimenez");
-		registroVisitante.registrarVisitante("vis0002", "elizabeth", "rojas");
-		registroVisitante.registrarVisitante("vis0003", "carlos", "Luna");
-		registroVisitante.registrarVisitante("vis0004", "freddy", "ortiz");
+		registroVisitante.registrarVisitante("78686787", "mirtha", "jimenez");
+		registroVisitante.registrarVisitante("43409423", "elizabeth", "rojas");
+		registroVisitante.registrarVisitante("98708656", "carlos", "Luna");
+		registroVisitante.registrarVisitante("45454677", "freddy", "ortiz");
 		assertEquals(4, registroVisitante.getVisitante().size());
 	}
 
