@@ -30,6 +30,7 @@ public class IntegralTests1 {
 		regVivienda.registrarVivienda("viv0001", "los alamos", 1758, 25.5,
 				"casa", regResidente.getResidente("12345678"));
 
+		
 		// creando cuotas
 		cuota = new ColocacionCuota();
 		cuota.registrarCuotas(regVivienda.getVivienda("viv0001"), 201105, 2000,
