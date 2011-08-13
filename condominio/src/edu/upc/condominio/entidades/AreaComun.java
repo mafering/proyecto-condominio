@@ -12,14 +12,25 @@ public class AreaComun {
     String comentario;
    
    
-	public AreaComun(String idAreaComun, String tipoArea, String ubicación,int capacidadPersonas, 
-	        String estado){
-
+	public AreaComun(String idAreaComun, 
+												String tipoArea, 
+												String ubicación,
+												int capacidadPersonas, 
+												String estado,
+												String fecha,
+												String responsable,
+											    String comentario											
+												){
+		
 	this.idAreaComun=idAreaComun;
 	this.tipoArea=tipoArea;
 	this.ubicación=ubicación;
 	this.capacidadPersonas=capacidadPersonas;
 	this.estado=estado;
+	
+	this.fecha =  fecha;
+	this.responsable =  responsable;
+	this.comentario = comentario; 
 
 	}
 /*
