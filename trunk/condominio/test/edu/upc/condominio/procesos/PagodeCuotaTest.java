@@ -61,8 +61,6 @@ public class PagodeCuotaTest {
 	public void PagodeCuotas() throws ParseException //throws ParseException {
 	{
 		
-	    
-		//Cuota ent=null;
 		PagodeCuotas neg=new PagodeCuotas(cuota.getCuotas());
 		assertEquals(2,neg.getCuotas().size());
 		neg.pagarCuota(
