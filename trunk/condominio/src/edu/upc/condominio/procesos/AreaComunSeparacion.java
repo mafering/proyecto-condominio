@@ -1,14 +1,23 @@
 package edu.upc.condominio.procesos;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import edu.upc.condominio.entidades.AreaComun;
+import edu.upc.condominio.entidades.Cuota;
 import edu.upc.condominio.procesoslogica.AreaComunSeparacionLogica;
 
 public class AreaComunSeparacion implements AreaComunSeparacionLogica {
 	private int valido = 0;
-    private int registroActualizados = 0;
-
+    private static int registroActualizados = 0;
+    private static int registroReservados = 0;
+    
 	public int getRegistroActualizados() {
 		return registroActualizados;
+	}
+
+	public int getRegistroReservados() {
+		return registroReservados;
 	}
 
 	public void separar(String idAreaComun, String fecha,
@@ -17,7 +26,7 @@ public class AreaComunSeparacion implements AreaComunSeparacionLogica {
 		// TODO Auto-generated method stub
 		
 		
-		sepacionValida(idAreaComun, fecha);
+		separacionValida(idAreaComun, fecha);
 		if (valido == 0)  { 			responsableValido(responsableDni, fecha);
 			if (valido == 0){ 			capacidadValida(idAreaComun, cantidadPersonasPorAsistir);
 				if (valido == 0){  					
@@ -40,18 +49,22 @@ public class AreaComunSeparacion implements AreaComunSeparacionLogica {
 
 	}
 
-	public void listadeReservas() {
-		// TODO Auto-generated method stub
+	public void listadeReservas() {	
 		
+		for(AreaComun areaComunReservada:RegistroAreaComun.getAreas()){
+			if (areaComunReservada.getEstado().equals("Reservado")) {
+				registroReservados++;
+			}
+		}
+				
 	}
-
-
 		
-	public void sepacionValida(String idAreaComun, String fecha) {
+	public void separacionValida(String idAreaComun, String fecha) {
 		for(AreaComun areaComun:RegistroAreaComun.getAreas()){
 			if( ( areaComun.getIdAreaComun().equals(idAreaComun) && 
 					( areaComun.getEstado().equals("Reservado")  ||   areaComun.getEstado().equals("En mantenimiento")  ) ) 
 					&& areaComun.getFecha().equals(fecha) 
+					
 				){
 				System.out.println("*Area común " +  areaComun.getIdAreaComun() + "-" + areaComun.getTipoArea()  + ", esta en: " + areaComun.getEstado() 
 						+  ", el día " +  areaComun.getFecha());
@@ -82,7 +95,8 @@ public class AreaComunSeparacion implements AreaComunSeparacionLogica {
 			}
 		}	
 	}
-	
+
+
 	
 	}
 
